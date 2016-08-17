@@ -28,6 +28,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 # Easy upload management for ActiveRecord
 gem 'paperclip', '~> 5.0'
+# Provides common authentication needs such as signing in/out, activating by email and resetting password.
+gem 'sorcery', '~> 0.9.1'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

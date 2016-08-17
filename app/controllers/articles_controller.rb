@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   include ArticlesHelper
+  before_filter :zero_authors_or_authenticated, except: [:show, :index]
 
   def index
     @articles = Article.all
@@ -44,6 +45,13 @@ class ArticlesController < ApplicationController
     flash.notice = "Article '#{@article.title}' Updated!"
 
     redirect_to article_path(@article)
+  end
+
+  def zero_authors_or_authenticated
+    unless Author.count == 0 || current_user
+      redirect_to root_path
+      return false
+    end
   end
 
 end
